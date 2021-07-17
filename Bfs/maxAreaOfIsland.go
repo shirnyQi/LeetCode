@@ -1,3 +1,5 @@
+package Bfs
+
 import "container/list"
 
 /*
