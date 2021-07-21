@@ -22,3 +22,20 @@ func inorderTraversal(root *TreeNode) []int {
 	return res
 
 }
+
+// 二叉树中序遍历栈实现
+func inorderTraversalStack(root *TreeNode) (vals []int) {
+	stack := []*TreeNode{}
+	node := root
+	for node != nil || len(stack) > 0 {
+		for node != nil {
+			stack = append(stack, node)
+			node = node.Left
+		}
+		node = stack[len(stack)-1]
+		vals = append(vals, node.Val)
+		node = node.Right
+		stack = stack[:len(stack)-1]
+	}
+	return
+}
