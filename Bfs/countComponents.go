@@ -34,7 +34,7 @@ func countComponents(n int, edges [][]int) int {
 
 	for i := 0; i < n; i++ {
 		if !isVisit[i] {
-			bfs(graph, i, isVisit)
+			bfs0(graph, i, isVisit)
 			res += 1
 		}
 	}
@@ -71,7 +71,7 @@ func (q *Queue) Dequeue() int {
 	return val
 }
 
-func bfs(graph [][]int, index int, isVisit []bool) {
+func bfs0(graph [][]int, index int, isVisit []bool) {
 	queue := NewQueue()
 	queue.Enqueue(index)
 	isVisit[index] = true
