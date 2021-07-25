@@ -9,8 +9,8 @@ func countComponents(n int, edges [][]int) int {
 	}
 
 	var (
-		res     int = 0
-		isVisit     = make([]bool, n, n)
+		res     = 0
+		isVisit = make([]bool, n, n)
 	)
 
 	var dfs func([][]int, []bool, int)
