@@ -53,6 +53,6 @@ func max(a, b int) int {
 }
 
 func Test_(t *testing.T) {
-	fmt.Println(maxSatisfied(customers, grumpy, X)) // 16
-	//fmt.Println(maxSatisfied([]int{2, 6, 6, 9}, []int{0, 0, 1, 1}, 1)) // 17
+	fmt.Println(maxSatisfied(customers, grumpy, X))                    // 16
+	fmt.Println(maxSatisfied([]int{2, 6, 6, 9}, []int{0, 0, 1, 1}, 1)) // 17
 }
