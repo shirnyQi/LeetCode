@@ -25,6 +25,7 @@ func maximumUniqueSubarray(nums []int) int {
 	return maxSum
 }
 
+
 // personal
 func maximumUniqueSubarray2(nums []int) int {
 	m := make(map[int]int, 0)
