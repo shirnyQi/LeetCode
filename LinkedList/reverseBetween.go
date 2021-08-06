@@ -1,3 +1,10 @@
+package reverseBetween
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 /*
 lc 92:https://leetcode-cn.com/problems/reverse-linked-list-ii/
 */
