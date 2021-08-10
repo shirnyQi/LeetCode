@@ -37,6 +37,8 @@ type Point struct {
 func shortestBridge(grid [][]int) int {
 	rows, cols := len(grid), len(grid[0])
 	islandA := getIsLand(grid)
+	var xShift = []int{-1, 1, 0, 0}
+	var yShift = []int{0, 0, -1, 1}
 
 	var res int = -1
 	for islandA.Len() > 0 {
@@ -45,33 +47,15 @@ func shortestBridge(grid [][]int) int {
 		for i := 0; i < length; i++ {
 			ponit := islandA.Remove(islandA.Front()).(Point)
 			x, y := ponit.x, ponit.y
-			if x-1 > 0 && grid[x-1][y] != 2 {
-				if grid[x-1][y] == 1 {
-					return res
+			for index := 0; index < 4; index++ {
+				nextx, nexty := x+xShift[index], y+yShift[index]
+				if nextx >= 0 && nextx < rows && nexty >= 0 && nexty < cols && grid[nextx][nexty] != 2 {
+					if grid[nextx][nexty] == 1 {
+						return res
+					}
+					grid[nextx][nexty] = 2
+					islandA.PushBack(Point{nextx, nexty})
 				}
-				grid[x-1][y] = 2
-				islandA.PushBack(Point{x - 1, y})
-			}
-			if x+1 < rows && grid[x+1][y] != 2 {
-				if grid[x+1][y] == 1 {
-					return res
-				}
-				grid[x+1][y] = 2
-				islandA.PushBack(Point{x + 1, y})
-			}
-			if y-1 > 0 && grid[x][y-1] != 2 {
-				if grid[x][y-1] == 1 {
-					return res
-				}
-				grid[x][y-1] = 2
-				islandA.PushBack(Point{x, y - 1})
-			}
-			if y+1 < cols && grid[x][y+1] != 2 {
-				if grid[x][y+1] == 1 {
-					return res
-				}
-				grid[x][y+1] = 2
-				islandA.PushBack(Point{x, y + 1})
 			}
 		}
 	}
