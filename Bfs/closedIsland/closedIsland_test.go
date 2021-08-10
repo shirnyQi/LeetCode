@@ -1,4 +1,4 @@
-\package closedIsland
+package closedIsland
 
 import (
 	"container/list"
