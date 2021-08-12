@@ -55,7 +55,7 @@ p = "a*c?b"
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-// 自己写的错误解法
+// 自己写的错误解法，1477 / 1811 个通过测试用例
 func isMatchNotRight(s string, p string) bool {
 	plist := strings.Split(p, "*")
 	slen, sarray := len(s), []byte(s)
@@ -69,21 +69,9 @@ func isMatchNotRight(s string, p string) bool {
 			continue
 		}
 		isAllStar = false
-		fmt.Println(plist[pi])
-		i, size := 0, len(parray)
-		isStart := false
-		for si < slen && i < size {
-			fmt.Println(si, i, size)
-			if sarray[si] == parray[i] || parray[i] == '?' {
-				isStart = true
-				i++
-			} else if isStart {
-				i = 0
-				isStart = false
-			}
-			si++
-		}
-		if i != size {
+		//fmt.Println(plist[pi])
+		ok := isMatchSub(sarray, parray, &si)
+		if !ok {
 			return false
 		}
 	}
@@ -97,6 +85,32 @@ func isMatchNotRight(s string, p string) bool {
 	}
 
 	return true
+}
+
+func isMatchSub(sarray, parray []byte, si *int) bool {
+	slen, plen := len(sarray), len(parray)
+
+	for i := *si; i < slen; i++ {
+		if slen-i < plen {
+			return false
+		}
+
+		j, isEqual := 0, true
+		for j < plen {
+			if parray[j] == '?' || parray[j] == sarray[j+i] {
+				j++
+				continue
+			}
+			isEqual = false
+			break
+		}
+
+		if isEqual {
+			*si = i + plen
+			return true
+		}
+	}
+	return false
 }
 
 // 官方DP
