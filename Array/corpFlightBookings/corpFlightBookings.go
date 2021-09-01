@@ -1,3 +1,5 @@
+package corpFlightBookings
+
 /*
 lc:https://leetcode-cn.com/problems/corporate-flight-bookings/
 */

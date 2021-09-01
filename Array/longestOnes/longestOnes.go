@@ -1,3 +1,7 @@
+package longestOnes
+
+import "fmt"
+
 /*
 lc:https://leetcode-cn.com/problems/max-consecutive-ones-iii/
 */

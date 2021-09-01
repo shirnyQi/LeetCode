@@ -41,7 +41,27 @@ func minNumber(nums []int) string {
 	return res
 }
 
+func largestNumber(nums []int) string {
+	sort.Slice(nums, func(i, j int) bool {
+		a, b := nums[i], nums[j]
+		return strconv.Itoa(a)+strconv.Itoa(b) > strconv.Itoa(b)+strconv.Itoa(a)
+
+	})
+	var res = ""
+	for _, v := range nums {
+		s := strconv.Itoa(v)
+		if s == "0" && s == res {
+			continue
+		}
+		res += s
+	}
+	return res
+}
+
 func TestName(t *testing.T) {
 	fmt.Println(minNumber([]int{10, 2}))           // 102
 	fmt.Println(minNumber([]int{3, 30, 34, 5, 9})) // 3033459
+
+	fmt.Println(largestNumber([]int{10, 2}))           // 210
+	fmt.Println(largestNumber([]int{3, 30, 34, 5, 9})) // 9534330
 }
