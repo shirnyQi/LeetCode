@@ -55,6 +55,7 @@ func findKthBit(n int, k int) byte {
 
 	change(2)
 	return s[k-1]
+
 }
 
 func reverse(s []byte) []byte {
