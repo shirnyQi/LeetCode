@@ -20,38 +20,6 @@ type Node struct {
 	BottomRight *Node
 }
 
-//func construct(grid [][]int) *Node {
-//	size := len(grid)
-//	var root *Node
-//
-//	var dfs func(node *Node, begin, end []int) *Node
-//	dfs = func(node *Node, begin, end []int) *Node {
-//		start := grid[begin[0]][begin[1]]
-//		var flag = true
-//		for i := begin[0]; i < end[0]; i++ {
-//			for j := begin[1]; j < end[1]; j++ {
-//				if grid[i][j] != start {
-//					flag = false
-//					break
-//				}
-//			}
-//		}
-//		if flag {
-//			node = &Node{Val: toBool(start), IsLeaf: true}
-//			return node
-//		}
-//		node = &Node{Val: true, IsLeaf: false}
-//		node.TopLeft = dfs(node.TopLeft, begin, []int{(begin[0] + end[0]) / 2, (begin[1] + end[1]) / 2})
-//		node.TopRight = dfs(node.TopRight, []int{(begin[0] + end[0]) / 2, (begin[1] + end[1]) / 2}, []int{(begin[0] + end[0]) / 2, end[1]})
-//		node.BottomLeft = dfs(node.BottomLeft, begin, []int{end[0] / 2, end[1] / 2})
-//		node.BottomRight = dfs(node.BottomRight, begin, []int{end[0] / 2, end[1] / 2})
-//		return node
-//	}
-//
-//	root = dfs(root, []int{0, 0}, []int{size, size})
-//	return root
-//}
-
 func construct(grid [][]int) *Node {
 
 	var helper func(x1, y1, x2, y2 int) *Node
@@ -89,13 +57,6 @@ func construct(grid [][]int) *Node {
 	}
 
 	return helper(0, 0, len(grid), len(grid[0]))
-}
-
-func toBool(a int) bool {
-	if a == 0 {
-		return false
-	}
-	return true
 }
 
 func TestName(t *testing.T) {
