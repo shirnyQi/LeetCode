@@ -47,6 +47,7 @@ func construct(grid [][]int) *Node {
 				IsLeaf: true,
 			}
 		}
+
 		return &Node{
 			IsLeaf:      false,
 			TopLeft:     tl,
