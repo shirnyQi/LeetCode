@@ -9,6 +9,7 @@ import (
 // 官方提供的三种排序方式——Ints，Strings，Float64s
 func TestCommonFunc(t *testing.T) {
 	fmt.Println("====Test Sort Int====")
+	fmt.Println("====Test Sort Int====")
 	a := []int{4, 5, 6, 2, 1, 4, 0}
 	fmt.Println(a, sort.IntsAreSorted(a))
 	sort.Ints(a)
